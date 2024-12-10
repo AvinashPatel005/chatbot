@@ -17,6 +17,7 @@ const ChatPage = ({ userid }) => {
   ]);
   const chatboxRef = useRef(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchMessages = async () => {
       const chatCollection = collection(db, "chats/" + userid + "/chats");
@@ -28,9 +29,7 @@ const ChatPage = ({ userid }) => {
           ...doc.data(),
         }));
         setChatHistory([...chatHistory, ...fetchedMessages.reverse()]);
-        setTimeout(() => {
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 10);
+        scrollToBottom()
         setLoading(false);
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -57,6 +56,12 @@ const ChatPage = ({ userid }) => {
       }, index * 50);
     });
   };
+  
+  const scrollToBottom = ()=>{
+    setTimeout(() => {
+      chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
+    }, 10);
+  }
 
   const addMessageToServer = async (message, role) => {
     const chatCollection = collection(db, "chats/" + userid + "/chats");
@@ -74,6 +79,7 @@ const ChatPage = ({ userid }) => {
 
   const handleSend = async () => {
     if (!userMessage.trim()) return;
+    scrollToBottom()
     addMessageToServer(userMessage, "user");
     const updatedChatHistory = [
       ...chatHistory,
