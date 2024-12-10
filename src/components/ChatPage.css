@@ -1,0 +1,126 @@
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 500px;
+    border-radius:10px;
+    flex-shrink: 1;
+    overflow: hidden;
+  }
+  
+  .chatbox {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  .chatbox ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chat {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  
+  .chat p {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 16px;
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+
+  
+  .chat.assistant {
+    flex-direction: row;
+  }
+  
+  .chat.assistant p {
+    background-color: #005eab;
+    margin-left: 8px;
+  }
+  
+  .chat.user {
+    flex-direction: row-reverse;
+  }
+  
+  .chat.user p {
+    background-color: #9d77e4;
+    margin-right: 8px;
+  }
+  
+  .avatar-assistant{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: #ff4081;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+  .avatar-user{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: #04f804;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    margin-left: 4px;
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 16px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .chat-input textarea {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+  }
+  
+  .chat-input button {
+    margin-left: 8px;
+    padding: 12px 24px;
+    background-color: #6200ea;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .chat-input button:hover {
+    background-color: #5a00d1;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
